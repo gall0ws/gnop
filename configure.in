@@ -1,0 +1,64 @@
+dnl $Id: configure.in 26 2009-08-24 22:38:58Z gallows $
+dnl
+dnl Copyright (C) 2009 Sergio Perticone.
+dnl All rights reserved.
+dnl
+
+dnl Base settings:
+AC_PREREQ(2.61)
+
+AC_INIT(src/main.c)
+AC_CONFIG_HEADERS(config.h)
+
+dnl Package name and version number:
+PACKAGE=gnop
+VERSION=svn27+
+
+dnl Package name and version number:
+AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+
+dnl Checks for programs:
+AC_PROG_CC
+AC_PROG_INSTALL
+PKG_PROG_PKG_CONFIG
+
+dnl Checks for libraries:
+PKG_CHECK_MODULES(sdl, sdl)
+AC_CHECK_LIB([SDL_ttf], [TTF_RenderText_Solid])
+if test	x"$ac_cv_lib_SDL_ttf_TTF_RenderText_Solid" = x"no"; then
+   AC_MSG_ERROR(Library SDL_ttf not found.)
+fi
+
+AC_ARG_ENABLE(audio, [  --enable-audio  audio support [[default=yes]]], [
+     if test "$enableval" = no; then
+     	have_audio=no
+     else
+	have_audio=yes
+     fi
+], [have_audio=yes])
+
+if test "$have_audio" = yes; then
+   AC_CHECK_LIB([SDL_mixer], [Mix_PlayChannelTimed])
+   if test x"$ac_cv_lib_SDL_mixer_Mix_PlayChannelTimed" = x"no"; then
+      have_audio=no
+      AC_MSG_WARN(Library SDL_mixer not found: audio support disabled)
+   fi
+fi
+
+dnl data/Makefile.am and src/Makefile.am need this one:
+AM_CONDITIONAL(HAVE_AUDIO_SUPPORT, test $have_audio = yes)
+
+AC_HEADER_STDBOOL
+AC_FUNC_ALLOCA
+
+dnl Create makefiles:
+AC_OUTPUT( Makefile
+	   data/Makefile
+	   src/Makefile )
+
+echo "
+        prefix:             ${prefix}
+	audio enabled:	    ${have_audio}
+	
+Now type \`make' to compile ${PACKAGE}.
+"

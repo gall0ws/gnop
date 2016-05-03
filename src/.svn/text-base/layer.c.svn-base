@@ -1,0 +1,68 @@
+/* $Id$
+ *
+ * Copyright (c) 2009 Sergio Perticone <g4ll0ws@gmail.com>
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+#include "layer.h"
+
+INLINE_METHOD bool layer_own(const Layer *self, s16 x, s16 y)
+{
+	return LAYER(self)->vtable.own(self, x, y);
+}
+
+INLINE_METHOD u16 layer_get_width(const Layer *self)
+{
+	return LAYER(self)->vtable.get_width(self);	
+}
+
+INLINE_METHOD u16 layer_get_height(const Layer *self)
+{
+	return LAYER(self)->vtable.get_height(self);
+}
+
+INLINE_METHOD s16 layer_get_x(const Layer *self)
+{
+	return LAYER(self)->vtable.get_x(self);
+}
+
+INLINE_METHOD s16 layer_get_y(const Layer *self)
+{
+	return LAYER(self)->vtable.get_y(self);
+}
+
+INLINE_METHOD void layer_set_width(Layer *self, u16 w)
+{
+	return LAYER(self)->vtable.set_width(self, w);
+}
+
+INLINE_METHOD void layer_set_height(Layer *self, u16 h)
+{
+	return LAYER(self)->vtable.set_height(self, h);
+}
+
+INLINE_METHOD void layer_set_x(Layer *self, s16 x)
+{
+	return LAYER(self)->vtable.set_x(self, x);
+}
+
+INLINE_METHOD void layer_set_y(Layer *self, s16 y)
+{
+	return LAYER(self)->vtable.set_y(self, y);
+}
+
+INLINE_METHOD void layer_set_xy(Layer *self, s16 x, s16 y)
+{
+	return LAYER(self)->vtable.set_xy(self, x, y);
+}

@@ -1,0 +1,62 @@
+.\" $Id: gnop.6 27 2009-08-28 21:03:48Z gallows $
+.TH GNOP 6 "August 2009"
+.SH NAME
+gnop \- a pong clone
+.SH SYNOPSIS
+\fBgnop\fR [\fIOPTION\fR]...
+.br
+.SH OPTIONS
+This program follow the usual GNU command line syntax, with long options starting with two dashes (`-').
+.TP
+A summary of options is included below.
+.TP
+.B \-c, \-\-fg\-color=\fIcolor\fR
+Set foreground color to \fIcolor\fR. The given color should be expressed in RGB hexadecimal format, for instance: 00ff00 is green and ffffff is white. 
+.br
+If your display depth is lesser than 32-bit, the closest matching color will be used instead.
+.TP
+.B \-C, \-\-bg\-color=\fIcolor\fR
+Set background color to \fIcolor\fR.
+.br
+.TP
+.B \-f, \-\-fullscreen
+Run gnop in fullscreen mode.
+.TP
+.B \-\-display=\fIdisplay\fR
+Specify the X display to use.
+.TP
+.B \-d, \-\-datadir=\fIdir\fR
+Load game's data (e.g. sounds and font) from \fIdir\fR.
+.TP
+.B \-m, \-\-mute
+Disable any sound for this session of the game.
+.TP
+.B \-\-help
+Show summary of options.
+.SH KEYBOARD CONTROLS
+.TP
+.B Up
+Move paddle up.
+.TP
+.B Down
+Move paddle down.
+.TP
+.B ESC
+Quit game.
+.TP
+.B F2
+Restart match.
+.TP
+.B f
+Toggle fullscreen.
+.TP
+.B m
+Disable sound for this session of the game (if sound support was compiled in)
+.TP
+.B p
+Toggle pause.
+.TP
+.B 9 and 0
+Decrease/increase volume (if sound support was compiled in).
+.SH AUTHOR
+This manual page was written by Sergio Perticone <g4ll0ws@gmail.com>.

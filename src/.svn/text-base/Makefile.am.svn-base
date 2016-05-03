@@ -1,0 +1,22 @@
+# $Id$
+
+bin_PROGRAMS=	gnop
+
+gnop_SOURCES=	object.c	\
+		layer.c		\
+		sprite.c	\
+		text.c		\
+		ball.c		\
+		paddle.c	\
+		audio.c		\
+		video.c		\
+		engine.c	\
+		log.c		\
+		main.c
+
+AM_CFLAGS=	-Wall -Wno-switch -g -O2 ${sdl_CFLAGS}
+
+DATADIR ?= 	${pkgdatadir}
+
+AM_CPPFLAGS=	-DDATADIR=\"${DATADIR}\"
+LDADD=		${sdl_LIBS}

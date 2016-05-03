@@ -1,0 +1,19 @@
+TODO list for gnop.
+
+* Hight-Priority
+___________________________________________________________________
+ - Improve performance.
+ - Joystick support.
+ - Multiplayer mode.
+ - Demo mode (AI vs AI).
+
+* Mid-Priority
+-------------------------------------------------------------------
+ - Create an icon.
+ - Improve AI.
+
+* Low-Priority
+-------------------------------------------------------------------
+ - Implement paddles' head/tail-hit.
+
+$Id: TODO 27 2009-08-28 21:03:48Z gallows $

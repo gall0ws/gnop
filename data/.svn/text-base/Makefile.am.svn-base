@@ -1,0 +1,7 @@
+# $Id$
+
+stuffdir=	${pkgdatadir}
+stuff_DATA=	bounce.raw	\
+		gameover.raw	\
+		scored.raw	\
+		DejaVuSans.ttf
